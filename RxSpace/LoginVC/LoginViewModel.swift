@@ -16,7 +16,6 @@ class LoginViewModel {
     
     func isValid() -> Observable<Bool> {
         return Observable.combineLatest(emailTextFieldPublishSubject.asObservable().startWith(""), passwordTextFieldPublishSubject.asObservable().startWith("")).map { email, password in
-            print( )
             return email.contains(self.mailAdress) && password.count >= 7
             
         }.startWith(false)
